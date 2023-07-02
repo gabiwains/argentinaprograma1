@@ -10,11 +10,21 @@ function obtenerJugadaComputadora() {
 }
 
 function obtenerJugadaUsuario() {
+  let flag=false;
+  let player;
   const readlineSync = require("readline-sync");
-  let player = readlineSync.question(
-    "Indique PIEDRA, PAPEL o TIJERAS para jugar: "
-  );
+  while(!flag){
+    player = readlineSync.question("Indique PIEDRA, PAPEL o TIJERAS para jugar: ");
+    if(player==="piedra"|| player==="PIEDRA"||player==="papel"||player==="PAPEL"||player==="tijeras"||player==="TIJERAS"){
+      flag=true;
+    }else{
+      console.log("Dato incorrecto ingreselo nuevamente");
+    }
+  }
+   
+  
   return player.toUpperCase();
+ 
 }
 
 function determinarGanador(obtenerJugadaComputadora, obtenerJugadaUsuario) {
